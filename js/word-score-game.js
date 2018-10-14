@@ -150,7 +150,7 @@ function getAvailableLetter(){
 
 function findWordToUse(){
  //TODO Your job starts here.
-		var score_temp=0;
+	var score_temp=0;
 	var word_temp="";
 	var highest_score = 0;
 	var highest_word = "";
@@ -167,7 +167,7 @@ function findWordToUse(){
 				word_temp += " "  + YOUR_HAND[a].letter+YOUR_HAND[b].letter
 				+ "分数: " + score_temp;
 			}
-			for(c=0;c<YOUR_HAND.length&&c!=b;c++){
+			for(c=0;c<YOUR_HAND.length&&c!=b&&c!=a;c++){
 				if(isThisAWord(YOUR_HAND[a].letter+YOUR_HAND[b].letter+YOUR_HAND[c].letter)){
 					word=YOUR_HAND[a].letter+YOUR_HAND[b].letter+YOUR_HAND[c].letter;
 					score_temp = YOUR_HAND[a].pointsWhenLettersUsed + YOUR_HAND[b].pointsWhenLettersUsed
@@ -180,7 +180,7 @@ function findWordToUse(){
 					word_temp += " "  + word
 					+ "分数: " + score_temp;
 				}
-				for(d=0;d<YOUR_HAND.length&&d!=c;d++){
+				for(d=0;d<YOUR_HAND.length&&d!=c&&d!=a&&d!=b;d++){
 					if(isThisAWord(YOUR_HAND[a].letter+YOUR_HAND[b].letter+YOUR_HAND[c].letter+YOUR_HAND[d].letter)){
 						word=YOUR_HAND[a].letter+YOUR_HAND[b].letter+YOUR_HAND[c].letter
 								+YOUR_HAND[d].letter;
@@ -193,7 +193,7 @@ function findWordToUse(){
 						+ YOUR_HAND[c].pointsWhenLettersUsed + YOUR_HAND[d].pointsWhenLettersUsed;
 						word_temp += " "  + word + "分数: " + score_temp;
 					}
-					for(e=0;e<YOUR_HAND.length&&e!=d;e++){
+					for(e=0;e<YOUR_HAND.length&&e!=d&&e!=a&&e!=b&&e!=c;e++){
 						if(isThisAWord(YOUR_HAND[a].letter+YOUR_HAND[b].letter+YOUR_HAND[c].letter+YOUR_HAND[d].letter
 								+YOUR_HAND[e].letter)){
 							score_temp = YOUR_HAND[a].pointsWhenLettersUsed + YOUR_HAND[b].pointsWhenLettersUsed
@@ -207,7 +207,7 @@ function findWordToUse(){
 							}
 							word_temp += " "  + word + "分数: " + score_temp;                   
 						}
-						for(f=0;e<YOUR_HAND.length&&f!=e;f++){
+						for(f=0;e<YOUR_HAND.length&&f!=e&&f!=a&&f!=b&&f!=c;f++){
 							if(isThisAWord(YOUR_HAND[a].letter+YOUR_HAND[b].letter+YOUR_HAND[c].letter+YOUR_HAND[d].letter
 									+YOUR_HAND[e].letter+YOUR_HAND[f].letter)){
 								score_temp = YOUR_HAND[a].pointsWhenLettersUsed + YOUR_HAND[b].pointsWhenLettersUsed
@@ -227,7 +227,7 @@ function findWordToUse(){
 			}
 		}
 	}
-	alert("得分最高的词: "+highest_word + " 得分: " + highest_score+" "+"您可以选择的词汇有: " + word_temp);	
+	alert("得分最高的词: "+highest_word + " 得分: " + highest_score+" "+"您可以选择的词汇有: " + word_temp);
 }
 function humanFindWordToUse(){
 	
